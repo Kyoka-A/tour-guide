@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+/* =====================================================
+   Tailwind v4 カスタムテーマ設定
+   ===================================================== */
+@theme {
+  /* ===== カスタムカラー ===== */
+  --color-charcoal-950: #0a0a0f;
+  --color-charcoal-900: #0f0f14;
+  --color-charcoal-800: #18181f;
+  --color-charcoal-700: #22222c;
+  --color-charcoal-600: #2d2d3a;
+
+  /* 日本酒ゴールド */
+  --color-sake-gold:  #c9a84c;
+  --color-sake-light: #e4c97b;
+  --color-sake-pale:  #f0e0a8;
+
+  /* 藍色インディゴ */
+  --color-indigo-deep:  #1a1f4e;
+  --color-indigo-mid:   #2d3494;
+  --color-indigo-light: #4a54c7;
+  --color-indigo-glow:  #6b7bff;
+
+  /* ページ全体のベースカラー (ライト) */
+  --color-cream-50:  #fdf9f3;
+  --color-cream-100: #f7efe0;
+  --color-cream-200: #eddfc8;
+
+  /* ===== フォント ===== */
+  --font-sans:  var(--font-montserrat);
+  --font-serif: var(--font-noto-serif-jp);
+
+  /* ===== アニメーション ===== */
+  --animate-fade-up: fadeUp 0.8s ease forwards;
+  --animate-shimmer: shimmer 3s linear infinite;
+}
+
+@keyframes fadeUp {
+  0%   { opacity: 0; transform: translateY(28px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+/* ===== グローバル ===== */
+html { scroll-behavior: smooth; }
+
+body {
+  /* サイト全体を暖かいクリーム系ベースに */
+  background-color: #fdf9f3;
+  color: #1c1917;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* カスタムスクロールバー */
+::-webkit-scrollbar       { width: 5px; }
+::-webkit-scrollbar-track { background: #f7efe0; }
+::-webkit-scrollbar-thumb { background: #c9a84c; border-radius: 3px; }
+
+/* ゴールドグラデーションテキスト */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #b7862e 0%, #e4c97b 50%, #b7862e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* インディゴグラデーションテキスト */
+.text-indigo-gradient {
+  background: linear-gradient(135deg, #4a54c7 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* タイムライン縦ライン (モバイル) */
+.timeline-wrapper {
+  position: relative;
+}
+.timeline-wrapper::before {
+  content: '';
+  position: absolute;
+  left: 1.25rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #c9a84c, #4a54c7, #c9a84c);
+  opacity: 0.4;
+}
+@media (min-width: 768px) {
+  .timeline-wrapper::before { display: none; }
+}
+
+/* スクロール表示アニメーション */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
