@@ -10,7 +10,7 @@ const guides = [
     tagBg: "bg-indigo-50 border-indigo-200 text-indigo-600",
     dividerColor: "bg-indigo-300",
     /* ===== プロフィール画像: src を実際の写真に差し替え ===== */
-    photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face&q=80",
+    photo: "/Kenneth.jfif",
     photoAlt: "Kenneth - Main Host",
     /* ===== 自己紹介文: ここを編集 ===== */
     bio: "Half-Canadian and Half-Japanese. Having grown up with two cultures, I bridge the gap between you and local Okayama. No language barrier here — let's talk about everything!",
@@ -30,7 +30,7 @@ const guides = [
     tagBg: "bg-amber-50 border-amber-200 text-amber-700",
     dividerColor: "bg-amber-300",
     /* ===== プロフィール画像: src を実際の写真に差し替え ===== */
-    photo: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=300&h=300&fit=crop&crop=face&q=80",
+    photo: "/Kyoka.jpg",
     photoAlt: "Kyoka - Sake Expert",
     /* ===== 自己紹介文: ここを編集 ===== */
     bio: "I am an artist and a Sake enthusiast. I may rely on my husband for English, but I speak the language of Sake fluently! I will teach you how to taste and enjoy real Japanese Sake.",

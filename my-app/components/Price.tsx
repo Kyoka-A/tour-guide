@@ -62,7 +62,8 @@ export default function Price() {
               <span className="text-stone-300 text-sm mb-2">~ ¥7,000 (est.)</span>
             </div>
             <h3 className="text-xl font-bold text-stone-800 mb-2">Food &amp; Drink Cost</h3>
-            <span className="inline-block px-3 py-1 bg-red-50 border border-red-200 text-red-400 text-xs font-bold tracking-wider rounded-full mb-4">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-red-500 text-white text-sm font-black tracking-widest rounded-xl mb-4 shadow-md shadow-red-200">
+              <i className="fa-solid fa-triangle-exclamation" />
               NOT INCLUDED
             </span>
             <p className="text-stone-500 text-sm leading-relaxed mb-4">
@@ -84,11 +85,13 @@ export default function Price() {
                 system. Everyone contributes to a shared pool. Your guide handles all
                 Japanese payments — no awkward bill-splitting!
               </p>
-              {/* ===== 図解画像プレースホルダー: ここを実際の画像に差し替え ===== */}
-              <div className="w-full h-48 bg-amber-100 border-2 border-dashed border-amber-300 rounded-lg flex flex-col items-center justify-center gap-2 text-amber-500">
-                <i className="fa-regular fa-image text-3xl" />
-                <span className="text-xs font-medium">Common Wallet Diagram</span>
-                <span className="text-[10px] text-amber-400">(Image Coming Soon)</span>
+              {/* ===== Common Wallet 図解画像 ===== */}
+              <div className="w-full rounded-xl overflow-hidden mt-1">
+                <img
+                  src="/Common Wallet System.png"
+                  alt="Common Wallet System の説明図"
+                  className="w-full h-auto object-contain"
+                />
               </div>
             </div>
           </div>

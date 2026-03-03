@@ -11,7 +11,7 @@ export default function Hero() {
       {/* ===== 背景画像: URLをここで差し替え ===== */}
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=1600&q=80"
+          src="/top.png"
           alt="日本酒の雰囲気ある居酒屋"
           className="w-full h-full object-cover object-center"
         />

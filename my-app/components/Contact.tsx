@@ -5,12 +5,37 @@ import { InlineWidget } from "react-calendly";
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [sending,   setSending]   = useState(false);
+  const [error,     setError]     = useState("");
 
-  /* ===== フォーム送信処理: Formspree等の実際のURLに差し替え ===== */
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  /* ===== フォーム送信: /api/contact へ POST ===== */
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // TODO: fetch("https://formspree.io/f/YOUR_ID", { method: "POST", body: new FormData(e.currentTarget) })
-    setSubmitted(true);
+    setSending(true);
+    setError("");
+
+    const form = e.currentTarget;
+    const body = {
+      lastName:  (form.elements.namedItem("lastName")  as HTMLInputElement).value,
+      firstName: (form.elements.namedItem("firstName") as HTMLInputElement).value,
+      email:     (form.elements.namedItem("email")     as HTMLInputElement).value,
+      subject:   (form.elements.namedItem("subject")   as HTMLSelectElement).value,
+      message:   (form.elements.namedItem("message")   as HTMLTextAreaElement).value,
+    };
+
+    const res = await fetch("/api/contact", {
+      method:  "POST",
+      headers: { "Content-Type": "application/json" },
+      body:    JSON.stringify(body),
+    });
+
+    setSending(false);
+    if (res.ok) {
+      setSubmitted(true);
+    } else {
+      const data = await res.json();
+      setError(data.error || "送信に失敗しました。時間をおいて再度お試しください。");
+    }
   };
 
   return (
@@ -74,51 +99,106 @@ export default function Contact() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4 mt-4">
-                  <div className="grid sm:grid-cols-2 gap-4">
+
+                  {/* Last Name / First Name */}
+                  <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className="block text-stone-600 text-xs font-semibold tracking-wider uppercase mb-1.5">
-                        Your Name *
+                        Last Name *
                       </label>
                       <input
                         type="text"
-                        name="name"
+                        name="lastName"
                         required
-                        placeholder="Alex Smith"
+                        placeholder="Yamada"
                         className="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl text-stone-800 text-sm placeholder-stone-300 focus:outline-none focus:border-sake-gold focus:ring-2 focus:ring-sake-gold/20 transition-all"
                       />
                     </div>
                     <div>
                       <label className="block text-stone-600 text-xs font-semibold tracking-wider uppercase mb-1.5">
-                        Email *
+                        First Name *
                       </label>
                       <input
-                        type="email"
-                        name="email"
+                        type="text"
+                        name="firstName"
                         required
-                        placeholder="you@example.com"
+                        placeholder="Taro"
                         className="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl text-stone-800 text-sm placeholder-stone-300 focus:outline-none focus:border-sake-gold focus:ring-2 focus:ring-sake-gold/20 transition-all"
                       />
                     </div>
                   </div>
 
+                  {/* Email */}
                   <div>
                     <label className="block text-stone-600 text-xs font-semibold tracking-wider uppercase mb-1.5">
-                      Message / Questions
+                      Email *
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      placeholder="you@example.com"
+                      className="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl text-stone-800 text-sm placeholder-stone-300 focus:outline-none focus:border-sake-gold focus:ring-2 focus:ring-sake-gold/20 transition-all"
+                    />
+                  </div>
+
+                  {/* Subject */}
+                  <div>
+                    <label className="block text-stone-600 text-xs font-semibold tracking-wider uppercase mb-1.5">
+                      Subject *
+                    </label>
+                    <select
+                      name="subject"
+                      required
+                      defaultValue=""
+                      className="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl text-stone-800 text-sm focus:outline-none focus:border-sake-gold focus:ring-2 focus:ring-sake-gold/20 transition-all appearance-none cursor-pointer"
+                    >
+                      <option value="" disabled>Please select...</option>
+                      <option value="Question about the tour">Question about the tour</option>
+                      <option value="Pricing & Booking">Pricing &amp; Booking</option>
+                      <option value="Dietary restrictions / Allergies">Dietary restrictions / Allergies</option>
+                      <option value="Group booking">Group booking</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+
+                  {/* Message */}
+                  <div>
+                    <label className="block text-stone-600 text-xs font-semibold tracking-wider uppercase mb-1.5">
+                      Message
                     </label>
                     <textarea
                       name="message"
                       rows={4}
-                      placeholder="Any dietary restrictions, special requests, or questions?"
+                      placeholder="Please provide any details here."
                       className="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl text-stone-800 text-sm placeholder-stone-300 focus:outline-none focus:border-sake-gold focus:ring-2 focus:ring-sake-gold/20 transition-all resize-none"
                     />
                   </div>
 
+                  {/* エラー表示 */}
+                  {error && (
+                    <p className="text-red-500 text-sm text-center bg-red-50 border border-red-200 rounded-xl py-3 px-4">
+                      <i className="fa-solid fa-triangle-exclamation mr-2" />
+                      {error}
+                    </p>
+                  )}
+
                   <button
                     type="submit"
-                    className="w-full py-3.5 bg-sake-gold text-white font-black text-sm tracking-widest uppercase rounded-full hover:bg-sake-light hover:shadow-lg hover:shadow-sake-gold/25 active:scale-95 flex items-center justify-center gap-3 cursor-pointer transition-all duration-300"
+                    disabled={sending}
+                    className="w-full py-3.5 bg-sake-gold text-white font-black text-sm tracking-widest uppercase rounded-full hover:bg-sake-light hover:shadow-lg hover:shadow-sake-gold/25 active:scale-95 flex items-center justify-center gap-3 cursor-pointer transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    <i className="fa-solid fa-paper-plane" />
-                    Send Message
+                    {sending ? (
+                      <>
+                        <i className="fa-solid fa-circle-notch animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <i className="fa-solid fa-paper-plane" />
+                        Send Message
+                      </>
+                    )}
                   </button>
 
                   <p className="text-center text-stone-400 text-xs">

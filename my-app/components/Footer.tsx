@@ -1,9 +1,6 @@
 /* ===== SNSリンク: hrefを実際のアカウントURLに変更 ===== */
 const socialLinks = [
-  { icon: "fa-brands fa-instagram", label: "Instagram", href: "#" },
-  { icon: "fa-brands fa-facebook-f", label: "Facebook",  href: "#" },
-  { icon: "fa-brands fa-x-twitter",  label: "X (Twitter)", href: "#" },
-  { icon: "fa-regular fa-envelope",  label: "Email", href: "mailto:hello@okayama-sake-night.com" },
+  { icon: "fa-regular fa-envelope", label: "Email", href: "mailto:myname.is.akita@gmail.com" },
 ];
 
 const navLinks = [
