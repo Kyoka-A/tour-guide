@@ -1,7 +1,7 @@
 import Timeline from "@/components/Timeline";
 
 export const metadata = {
-  title: "Tour Schedule & Itinerary | Okayama Local Sake Night",
+  title: "Tour Schedule & Itinerary | Okayama Sake Hop",
 };
 
 export default function SchedulePage() {

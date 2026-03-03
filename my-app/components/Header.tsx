@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import NextImage from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -46,13 +47,20 @@ export default function Header() {
 
           {/* ロゴ */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <span className="text-2xl">🍶</span>
+            <NextImage
+              src="/logo.png"
+              alt="logo"
+              width={36}
+              height={36}
+              className="h-9 w-9 object-contain"
+              priority
+            />
             <div className="leading-tight">
               <span className="block text-[10px] font-semibold tracking-[0.35em] text-sake-gold uppercase">
                 Okayama
               </span>
               <span className="block text-sm font-black tracking-widest text-stone-800 group-hover:text-sake-gold transition-colors duration-300">
-                Local Sake Night
+                Sake Hop
               </span>
             </div>
           </Link>

@@ -1,7 +1,7 @@
 import Guide from "@/components/Guide";
 
 export const metadata = {
-  title: "Meet Your Guides | Okayama Local Sake Night",
+  title: "Meet Your Guides | Okayama Sake Hop",
 };
 
 export default function GuidePage() {

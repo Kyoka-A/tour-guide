@@ -26,13 +26,13 @@ export default function Price() {
         <div className="grid md:grid-cols-2 gap-6 mb-8">
 
           {/* ===== Guide Fee カード ===== */}
-          <div className="reveal p-8 bg-white border border-amber-200 rounded-3xl shadow-sm hover:shadow-lg hover:shadow-sake-gold/15 hover:border-sake-gold/50 transition-all duration-300 group">
+          <div className="reveal p-6 md:p-8 bg-white border border-amber-200 rounded-3xl shadow-sm hover:shadow-lg hover:shadow-sake-gold/15 hover:border-sake-gold/50 transition-all duration-300 group">
             <div className="w-12 h-12 rounded-2xl bg-amber-100 flex items-center justify-center text-sake-gold text-xl mb-5">
               <i className="fa-solid fa-shield-halved" />
             </div>
             {/* ガイド料金: ここを編集 */}
             <div className="flex items-end gap-2 mb-1">
-              <span className="text-5xl font-black text-stone-900">¥4,000</span>
+              <span className="text-4xl md:text-5xl font-black text-stone-900">¥4,000</span>
               <span className="text-stone-400 text-sm mb-2">/ person</span>
             </div>
             <h3 className="text-xl font-bold text-stone-800 mb-4">Guide Fee</h3>
@@ -52,14 +52,17 @@ export default function Price() {
           </div>
 
           {/* ===== Food & Drink カード ===== */}
-          <div className="reveal p-8 bg-white border border-amber-200 rounded-3xl shadow-sm hover:shadow-lg hover:shadow-orange-100 hover:border-orange-300 transition-all duration-300 group">
+          <div className="reveal p-6 md:p-8 bg-white border border-amber-200 rounded-3xl shadow-sm hover:shadow-lg hover:shadow-orange-100 hover:border-orange-300 transition-all duration-300 group">
             <div className="w-12 h-12 rounded-2xl bg-orange-100 flex items-center justify-center text-orange-500 text-xl mb-5">
               <i className="fa-solid fa-utensils" />
             </div>
             {/* 飲食代目安: ここを編集 */}
-            <div className="flex items-end gap-2 mb-1">
-              <span className="text-3xl font-black text-stone-400">¥5,000</span>
-              <span className="text-stone-300 text-sm mb-2">~ ¥7,000 (est.)</span>
+            <div className="flex flex-col gap-0.5 mb-1">
+              <div className="flex items-end gap-2">
+                <span className="text-4xl md:text-5xl font-black text-stone-900">¥6,000</span>
+                <span className="text-stone-400 text-sm mb-1">~ ¥8,000</span>
+              </div>
+              <span className="text-stone-400 text-sm">(est. · 2–3 izakayas)</span>
             </div>
             <h3 className="text-xl font-bold text-stone-800 mb-2">Food &amp; Drink Cost</h3>
             <span className="inline-flex items-center gap-2 px-4 py-2 bg-red-500 text-white text-sm font-black tracking-widest rounded-xl mb-4 shadow-md shadow-red-200">
@@ -79,11 +82,15 @@ export default function Price() {
                   Common Wallet System
                 </span>
               </div>
-              <p className="text-stone-500 text-xs leading-relaxed mb-4">
+              <p className="text-stone-500 text-xs leading-relaxed mb-2">
                 To make payment smooth and stress-free, we use a{" "}
                 <strong className="text-stone-700">&quot;Common Wallet&quot; (共通財布)</strong>{" "}
                 system. Everyone contributes to a shared pool. Your guide handles all
                 Japanese payments — no awkward bill-splitting!
+              </p>
+              <p className="text-stone-600 text-xs leading-relaxed mb-4 font-medium">
+                <i className="fa-solid fa-rotate-left text-sake-gold mr-1.5" />
+                We collect cash at the start. Any leftover money will be returned to you evenly at the end of the tour.
               </p>
               {/* ===== Common Wallet 図解画像 ===== */}
               <div className="w-full rounded-xl overflow-hidden mt-1">
@@ -110,8 +117,8 @@ export default function Price() {
             <p className="text-stone-500 text-sm">
               Guide fee{" "}
               <strong className="text-sake-gold font-bold">¥4,000</strong> + Food &amp; Drinks{" "}
-              <strong className="text-sake-gold font-bold">¥5,000~7,000</strong> = Estimated total{" "}
-              <strong className="text-stone-800 text-base font-black">¥9,000~11,000</strong>{" "}
+              <strong className="text-sake-gold font-bold">¥6,000~8,000</strong> = Estimated total{" "}
+              <strong className="text-stone-800 text-base font-black">¥10,000~12,000</strong>{" "}
               per person. A complete authentic Okayama evening.
             </p>
           </div>

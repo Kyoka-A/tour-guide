@@ -21,7 +21,7 @@ const notoSerifJP = Noto_Serif_JP({
 
 /* ===== SEOメタデータ: タイトル・説明文を編集 ===== */
 export const metadata: Metadata = {
-  title: "Okayama Local Sake Night | 岡山 日本酒はしご酒ツアー",
+  title: "Okayama Sake Hop | 岡山 日本酒はしご酒ツアー",
   description:
     "An authentic sake hopping tour in Okayama led by a local expert. No tourist traps, just real local vibes.",
 };

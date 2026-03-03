@@ -1,7 +1,7 @@
 import Price from "@/components/Price";
 
 export const metadata = {
-  title: "Price & System | Okayama Local Sake Night",
+  title: "Price & System | Okayama Sake Hop",
 };
 
 export default function PricePage() {

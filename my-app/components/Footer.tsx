@@ -1,3 +1,5 @@
+import NextImage from "next/image";
+
 /* ===== SNSリンク: hrefを実際のアカウントURLに変更 ===== */
 const socialLinks = [
   { icon: "fa-regular fa-envelope", label: "Email", href: "mailto:myname.is.akita@gmail.com" },
@@ -18,13 +20,19 @@ export default function Footer() {
 
           {/* ロゴ */}
           <a href="#" className="flex items-center gap-3 group">
-            <span className="text-2xl">🍶</span>
+            <NextImage
+              src="/logo.png"
+              alt="logo"
+              width={36}
+              height={36}
+              className="h-9 w-9 object-contain"
+            />
             <div>
               <div className="text-[10px] font-bold tracking-[0.35em] text-sake-gold uppercase">
                 Okayama
               </div>
               <div className="text-sm font-black tracking-widest text-stone-800 group-hover:text-sake-gold transition-colors duration-300">
-                Local Sake Night
+                Sake Hop
               </div>
             </div>
           </a>
@@ -60,7 +68,7 @@ export default function Footer() {
         {/* コピーライト */}
         <div className="mt-10 pt-6 border-t border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-stone-400 text-xs">
           {/* ===== コピーライト: 年・名前を編集 ===== */}
-          <p>&copy; 2025 Okayama Local Sake Night. All rights reserved.</p>
+          <p>&copy; 2025 Okayama Sake Hop. All rights reserved.</p>
           <p className="font-serif text-stone-300">岡山 日本酒はしご酒ツアー</p>
         </div>
       </div>

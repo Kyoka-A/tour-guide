@@ -13,7 +13,7 @@ const guides = [
     photo: "/Kenneth.jfif",
     photoAlt: "Kenneth - Main Host",
     /* ===== 自己紹介文: ここを編集 ===== */
-    bio: "Half-Canadian and Half-Japanese. Having grown up with two cultures, I bridge the gap between you and local Okayama. No language barrier here — let's talk about everything!",
+    bio: "Half-Canadian and Half-Japanese. Having grown up with two cultures, I bridge the gap between you and local Okayama. No language barrier here — let's talk about anything!",
     /* ===== タグ: ここを編集 ===== */
     tags: ["🇨🇦 Canadian-Japanese", "🗣️ Native English", "🌏 Bilingual"],
     keyStrength: "English Friendly",
@@ -33,7 +33,7 @@ const guides = [
     photo: "/Kyoka.jpg",
     photoAlt: "Kyoka - Sake Expert",
     /* ===== 自己紹介文: ここを編集 ===== */
-    bio: "I am an artist and a Sake enthusiast. I may rely on my husband for English, but I speak the language of Sake fluently! I will teach you how to taste and enjoy real Japanese Sake.",
+    bio: "I am a Sake enthusiast. I may rely on Kenneth for English, but I speak the language of Sake fluently! I will teach you how to taste and enjoy real Japanese Sake.",
     /* ===== タグ: ここを編集 ===== */
     tags: ["🍶 Sake Connoisseur", "🎨 Web Designer", "🇯🇵 Okayama Local"],
     keyStrength: "Deep Expertise",

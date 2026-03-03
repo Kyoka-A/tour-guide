@@ -1,7 +1,7 @@
 import Contact from "@/components/Contact";
 
 export const metadata = {
-  title: "Book the Tour | Okayama Local Sake Night",
+  title: "Book the Tour | Okayama Sake Hop",
 };
 
 export default function ContactPage() {

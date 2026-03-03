@@ -26,13 +26,11 @@ const timeline = [
     icon: "fa-beer-mug-empty",
     cardCls: "border-stone-200 hover:border-indigo-300 hover:shadow-md hover:shadow-indigo-100",
     titleCls: "text-stone-800 group-hover:text-indigo-600",
-    badge: { text: "角打ち", cls: "bg-indigo-50 border-indigo-200 text-indigo-600" },
     body: (
       <>
-        Experience the authentic <em className="text-stone-700">&quot;kaku-uchi&quot;</em>{" "}
-        culture — a Japanese tradition of drinking directly at a sake shop. We
-        visit <strong className="text-stone-900">Miyashita Sake Brewery</strong>{" "}
-        or <strong className="text-stone-900">Sobakichi</strong>.
+        We&apos;ll start the evening with a relaxed drink somewhere nearby —
+        a casual warm-up before the main event. No plans set in stone, just good
+        vibes and a glass in hand.
       </>
     ),
     tags: [
@@ -58,7 +56,7 @@ const timeline = [
       </>
     ),
     bullets: [
-      { head: "Sake Flight",   text: "Tasting comparison of 3 local Okayama sakes (junmai, ginjo, daiginjo)" },
+      { head: "Sake Flight",   text: "A selection of local Okayama sakes chosen on the day" },
       { head: "Sake Lecture",  text: "Your guide explains the brewing process & flavor profiles" },
       { head: "Food Pairing",  text: "Local Okayama dishes selected to complement each sake" },
     ],
@@ -150,7 +148,7 @@ export default function Timeline() {
 
                 <div className="flex items-center gap-2 mb-2 flex-wrap">
                   <h3 className={`text-lg font-bold transition-colors ${item.titleCls}`}>
-                    {item.title || (idx === 0 ? "Meet at Okayama Station" : idx === 1 ? '"Kaku-uchi" Style Standing Bar' : idx === 2 ? 'Main Izakaya "Ichizen" — 一善' : "Free to Stay & Explore")}
+                    {idx === 0 ? "Meet at Okayama Station" : idx === 1 ? "A Quick Drink to Kick Things Off" : idx === 2 ? "A Handpicked Local Izakaya" : "Free to Stay & Explore"}
                   </h3>
                   {item.badge && (
                     <span className={`text-xs px-2 py-0.5 border rounded-full font-medium ${item.badge.cls}`}>
