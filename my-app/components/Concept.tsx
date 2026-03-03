@@ -68,11 +68,13 @@ export default function Concept() {
             </Link>
           </div>
 
-          {/* ===== 画像エリア: この div を <img> タグに差し替え ===== */}
-          <div className="w-full aspect-video bg-stone-100 border-2 border-dashed border-stone-300 rounded-3xl flex flex-col items-center justify-center gap-3 text-stone-400 shadow-inner">
-            <i className="fa-regular fa-image text-4xl" />
-            <span className="text-sm font-medium">Tour Atmosphere Image</span>
-            <span className="text-xs text-stone-300">(Image Coming Soon)</span>
+          {/* ===== About画像 ===== */}
+          <div className="w-full rounded-3xl overflow-hidden shadow-xl shadow-stone-200/60">
+            <img
+              src="/YY.png"
+              alt="Tour atmosphere"
+              className="w-full h-auto object-cover"
+            />
           </div>
         </div>
 
